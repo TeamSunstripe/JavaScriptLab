@@ -18,6 +18,9 @@ footer {
     
 }
 
+a {
+    text-decoration: none;
+}
 
 /** 最終更新日 から 経過しているかのエリアを JavaScriptで表示する **/
 #error_difference {
