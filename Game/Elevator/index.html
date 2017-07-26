@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja" target="_blank">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>素敵曜日 - JavaScript Lab - Game - Elevator</title>
+        <script type="text/javascript" src="../../js/init.js"></script>
+        <script type="text/javascript" src="./js/init.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/styles.css"/>
+        <link rel="stylesheet" type="text/css" href="./css/main.css"/>
+        <style>
+            </style>
+    </head>
+    <body>
+        <header>
+
+        </header>
+        
+        <canvas id="canvasElevator" width="200" height="200"></canvas>
+        <button onclick="stop();">止める</button>
+        <script>
+            //初期値の設定
+            var gameDate = {
+                            "isLoop":true,
+                            "loopTimeSecond":10,
+                            // エレベーターの情報
+                            "ElevatorInfo":{
+                                "x":30,
+                                "y":30,
+                            }
+            };
+        
+        function stop() {
+            alert("stop");
+            gameDate.isLoop = false;
+        }
+        
+
+            function drawLoopSquare() {
+                /* Canvas要素の定義など */
+                var cs  = document.getElementById('canvasElevator');
+                var ctx = cs.getContext('2d');
+                var w = cs.width;
+                var h = cs.height;
+                var x = gameDate.ElevatorInfo.x;
+                var y = gameDate.ElevatorInfo.y;
+                /* 描画フロー */
+                function render() {
+                    // Canvas全体をクリア
+                    ctx.clearRect(0, 0, w, h);
+                    
+                    // 要素を描画する
+                    ctx.beginPath();
+                    ctx.strokeRect(x, y, 50, 50);
+                    
+                    // 要素を動かす
+                    // 四角形のx座標がCanvasの横幅を超えたら初期位置(x座標を0)へ
+                    // そうでなければ、x座標を1増やす
+                    if (y > cs.width) {
+                        y = 0;
+                    } else {
+                        y += 1;
+                    }
+                    
+                    // このrender関数を繰り返す
+                    // 下記どちらかを使った場合は、外側でrender()を実行する※1（もしくは即時実行）
+                    // setTimeout(render, 100);
+                    // requestAnimationFrame(render);
+                }
+                /* ※1 */
+                // render();
+                
+                /* render()関数を繰り返す */
+                /* setTimeout、requestAnimationFrameではなく、setIntervalを使う場合 */
+                if (gameDate.isLoop) {
+                    setInterval(render, gameDate.loopTimeSecond);
+                }
+            }
+        drawLoopSquare();
+        </script>
+        
+        <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
+        <script>
+            addDifferenceElement();
+            </script>
+        <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
+        
+        <script>
+            new Elevator()
+        </script>
+        <footer>
+            <a href="http://sunstripe.main.jp/">
+            <div style="clear:both;text-align:center;">
+                
+                &copy; 2011 - <script>
+                    var newDate = new Date();
+                    //年・月・日・曜日を取得する
+                    var year = newDate.getFullYear();
+                    document.write(year);
+                    </script> Team Sun Stripe
+            </div>
+            </a>
+        </footer>
+    </body>
+</html>
