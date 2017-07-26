@@ -21,12 +21,18 @@
         <script>
             //初期値の設定
             var gameDate = {
+                            "timer":"",
                             "isLoop":true,
-                            "loopTimeSecond":10,
+                            "loopTimeSecond":700,
+                            // 移動情報の情報
+                            "moveX":0,
+                            "moveY":10,
                             // エレベーターの情報
                             "ElevatorInfo":{
-                                "x":30,
-                                "y":30,
+                                "x":0,
+                                "y":0,
+                                "width":50,
+                                "height":50,
                             }
             };
         var Elevator_stopButton = document.getElementById("Elevator_stopButton");
@@ -65,15 +71,20 @@
                     
                     // 要素を描画する
                     ctx.beginPath();
-                    ctx.strokeRect(x, y, 50, 50);
+                    ctx.strokeRect(x, y, gameDate.ElevatorInfo.width, gameDate.ElevatorInfo.height);
                     
                     // 要素を動かす
                     // 四角形のx座標がCanvasの横幅を超えたら初期位置(x座標を0)へ
                     // そうでなければ、x座標を1増やす
-                    if (y > cs.width) {
+                    if (x > cs.width) {
+                        x = 0;
+                    } else {
+                        x += gameDate.moveX;
+                    }
+                    if (y > cs.height) {
                         y = 0;
                     } else {
-                        y += 1;
+                        y += gameDate.moveY;
                     }
                     
                     // このrender関数を繰り返す
@@ -87,7 +98,7 @@
                 /* render()関数を繰り返す */
                 /* setTimeout、requestAnimationFrameではなく、setIntervalを使う場合 */
                 if (gameDate.isLoop) {
-                    setInterval(render, gameDate.loopTimeSecond);
+                    gameDate.timer = setInterval(render, gameDate.loopTimeSecond);
                 }
             }
         drawLoopSquare();
