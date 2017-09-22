@@ -5,6 +5,7 @@ html {
 body {
     width:90%;
     background-color: rgba(0,100,230,1.0);
+    background-image: url("../img/kabe01.jpg");
     background-size : cover;
 }
 
@@ -249,6 +250,26 @@ li.mainMenu {
     border-color : white transparent transparent transparent;
     transition   : all .4s;
 }
+
+.categoryList {
+    height:55px;
+}
+.categoryList:hover {
+    background-color:rgba(200,200,200,0.3);
+}
+.redMaru {
+    border-radius: 20px;        /* CSS3草案 */
+    -webkit-border-radius: 20px;    /* Safari,Google Chrome用 */
+    -moz-border-radius: 20px;   /* Firefox用 */
+    background-color:rgba(0,0,50,0.5);
+    color:white;
+    font-size:0.3em;
+    padding-top:5px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-bottom:3px;
+}
+
 
 /** footer **/
 
