@@ -1,7 +1,7 @@
 
-    function init() {
-        
-    }
+function init() {
+    
+}
 
 /** 最終更新日 から 経過しているかのエリアを JavaScriptで表示する **/
 
@@ -37,6 +37,56 @@ function checkDifference () {
             }
         }
     }
+}
+
+var menuItems = [
+                 {
+                 "title":"menu1",
+                 "id":"menu1",
+                 "url":"",
+                 "classes":
+                 [
+                  "left",
+                  ],
+                 },
+                 {
+                 "title":"menu2",
+                 "id":"menu2",
+                 "url":"",
+                 "classes":
+                 [
+                  "left",
+                  ],
+                 },
+                 ];
+
+/** 最終更新日 から 経過しているかのエリアを JavaScriptで表示する **/
+
+function displayMenuListElement ()
+{
+    var menuListElement = document.createElement("div");
+    menuListElement.id = "menuList";
+    menuListElement.innerHTML = "<h3>カテゴリー一覧</h3>";
+    
+    // DOM に新しく作られた要素とその内容を追加します。
+    document.body.appendChild(menuListElement);
+    
+    for (var c = 0; c < menuItems.length; c++) {
+        var menuElement = document.createElement("div");
+        menuElement.id = menuItems[c].id;
+        document.body.appendChild(menuElement);
+        displayMenuElement(c);
+    }
+}
+
+function displayMenuElement (number) {
+    var menuElement = document.getElementById(menuItems[number].id);
+    
+    //class追加
+    menuElement.classList.add('menuList');
+    for (var i = 0;i < menuItems.length; i++) 
+    menuElement.classList.add('menuList');
+    menuElement.innerHTML = "<h4>" + menuItems[number].title + "</h4>";
 }
 
 var categoryItems = [
