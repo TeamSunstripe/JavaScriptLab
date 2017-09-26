@@ -24,6 +24,52 @@
             </nav>
         </header>
         
+        
+        <style>
+            @import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+            #div-tweet {
+                font-size: 20px;
+                font-family: 'Noto Sans Japanese', sans-serif;
+            }
+        </style>
+        
+        <a href="http://search.twitter.com/search.json?q=%23wordpress">%23wordpress</a>
+        
+        <a href="http://search.twitter.com/search.json?q=wordpress">wordpress</a>
+        
+        <div id="div-tweet">div-tweet</div>
+        <!-- jquery
+         
+         <script src="https://coxde.jquery.com/jquery-2.1.4.min.js"></script>
+         
+         -->
+        <script>
+            (function(){
+             // https://dev.twitter.com/web/tweet-button/web-intent
+             var div_tweet = document.getElementById('div-tweet');
+             var base_url = 'https://twitter.com/intent/tweet';
+             // パラメータ
+             var text = 'Twitter API(Tweet Web Intent) Test';
+             var url = 'http://sunstripe.main.jp/';
+             var via = 'sunstripe2011';
+             var hashtags = 'サンストライプ, TwitterAPI';
+             // 指定したユーザーがおすすめユーザーとして2アカウントまで表示
+             var related = 'sunstripe2011';
+             var tweetid = 0;
+             
+             var tweetLink = '<a href="' + base_url +
+             '?text=' + encodeURIComponent(text) +
+             '&url=' + url +
+             '&via=' + via +
+             '&hashtags=' + hashtags +
+             '&related=' + related +
+             // '&in-reply-to=' + tweetid +
+             '" target="_blank">ツイート</a>';
+             
+             div_tweet.innerHTML = tweetLink;
+             })();
+            </script>
+        
         <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
         <script>
             addDifferenceElement();
