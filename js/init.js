@@ -39,6 +39,48 @@ function checkDifference () {
     }
 }
 
+
+/** STATUS 状態を JavaScriptで表示する **/
+
+var statusItems = [
+                   {
+                   "id":"status001",
+                   "title":"改善",
+                   },
+                   {
+                   "id":"status002",
+                   "title":"リリース",
+                   },
+                   {
+                   "id":"status003",
+                   "title":"リファクタリング",
+                   },
+];
+
+// ステータス表示部
+function addStatusElement () {
+    var statusElement = document.createElement("select");
+    statusElement.id = "status";
+    // DOM に新しく作られた要素とその内容を追加します。
+    document.body.appendChild(statusElement);
+    for (var s = 0; s < statusItems.length; s++) {
+        var statusElementOption = document.createElement("option");
+        statusElementOption.id = statusItems[s].id;
+        statusElement.appendChild(statusElementOption);
+        displayStatusElement(s);
+    }
+}
+
+function displayStatusElement (number) {
+    var statusElement = document.getElementById(statusItems[number].id);
+    //class追加
+    statusElement.classList.add('statusList');
+    statusElement.innerHTML = "" + "<span class='" + "redMaru" + "'>" + statusItems[number].title + "</span>";
+}
+
+/** STATUS 状態を JavaScriptで表示する **/
+
+
 var categoryItems = [
                      {
                      "title":"JavaScript",

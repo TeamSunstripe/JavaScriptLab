@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja" target="_blank">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>素敵曜日 - JavaScript Lab - status</title>
+        <script type="text/javascript" src="./js/init.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/styles.css"/>
+        <style>
+            select{
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                height: 60px;
+                background: transparent;
+                position: relative;
+                z-index: 1;
+                padding: 0 40px 0 10px;
+                border: 1px solid #ccc;
+            }
+        select::-ms-expand {
+            display: none;
+        }
+        .statusList{
+            position: relative;
+            display: inline-block;
+        }
+        .statusList::before{
+            content: '';
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            right: 0;
+            background: #ccc;
+            height: 100%;
+            width: 100%;
+        }
+        .statusList::after{
+            content: '';
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+            right: 9px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 6px 6px 0 6px;
+            border-color: rgba(200,0,0,1.0) transparent transparent transparent;
+        }
+            </style>
+    </head>
+    <body>
+        <header>
+            <nav class="mainMenuList">
+                <menu>
+                    <li class="mainMenuList"><a class="mainMenu" href="http://sunstripe.main.jp/">HOME</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="http://sunstripe.main.jp/lab/">素敵曜日</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../DesignLab/index.html">Design Lab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../CSSLab/index.html">CSSLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../HTMLLab/index.html">HTMLLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../PHPLab/index.html">PHPLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu selected" href="../JavaScriptLab/index.html">JavaScriptLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../GitMaster/index.html">GitMaster</a></li>
+                </menu>
+            </nav>
+        </header>
+        
+        
+        <style>
+            @import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+            #div-tweet {
+                font-size: 20px;
+                font-family: 'Noto Sans Japanese', sans-serif;
+            }
+        </style>
+        
+        <h1>ステータスリスト</h1>
+        <!-- STATUS 状態を JavaScriptで表示する// -->
+        <script>
+            addStatusElement();
+            </script>
+        <!-- STATUS 状態を JavaScriptで表示する// -->
+        
+        <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
+        <script>
+            addDifferenceElement();
+            </script>
+        <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
+        
+        <div id="contents">
+            <a href="./Game/index.html">
+            <div id="contentsGame" style="width:200px;height:200px;background-color:rgba(255,255,255,0.5);">
+            </div>
+            </a>
+        </div>
+        
+        <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
+        <script>
+            displayCategoryListElement();
+            </script>
+        <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
+        
+        <footer>
+            <a href="http://sunstripe.main.jp/">HOME</a> > <a href="./index.html">素敵曜日 - JavaScript Lab</a> > <a href="./reference.html">reference</a> > <a href="./help.html">HELP</a>
+            <div style="clear:both;text-align:center;">
+                
+                &copy; 2011 - <script>
+                    var newDate = new Date();
+                    //年・月・日・曜日を取得する
+                    var year = newDate.getFullYear();
+                    document.write(year);
+                    </script> Team Sun Stripe
+            </div>
+        </footer>
+    </body>
+</html>
