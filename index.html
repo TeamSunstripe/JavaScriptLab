@@ -4,6 +4,8 @@
         <meta charset="UTF-8"/>
         <title>素敵曜日 - JavaScript Lab</title>
         <script type="text/javascript" src="./js/init.js"></script>
+        <script type="text/javascript" src="./js/category.js"></script>
+        <script type="text/javascript" src="./js/sidemenu.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/styles.css"/>
         <style>
             </style>
@@ -76,19 +78,44 @@
             </script>
         <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
         
-        <div id="contents">
-            <a href="./Game/index.html">
-            <div id="contentsGame" style="width:200px;height:200px;background-color:rgba(255,255,255,0.5);">
-            </div>
-            </a>
+        <hr style="clear:both;"/>
+        
+        <div id="sidemenu" style="width:30%;float:left;">
+            
+            <!-- サイドメニュー一覧エリアを JavaScriptで表示する// -->
+            <script>
+                setSideMenuStyle();
+                displaySideMenuListElement(this);
+                </script>
+            <!-- サイドメニュー一覧エリアを JavaScriptで表示する// -->
+            
         </div>
         
+        <div id="category" style="width:50%;float:right;">
+            
         <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
         <script>
-            displayCategoryListElement();
+            setCategoryStyle();
+            displayCategoryListElement(this);
             </script>
         <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
         
+        </div>
+        
+        <hr style="clear:both;"/>
+        
+        <div>
+            <a href="./category.html"><h4>category</h4></a>
+        </div>
+        
+        <div id="contents">
+            <a href="./Game/index.html">
+                <div id="contentsGame" style="width:200px;height:200px;background-color:rgba(255,255,255,0.5);">
+                </div>
+            </a>
+        </div>
+        
+
         <footer>
             <a href="http://sunstripe.main.jp/">HOME</a> > <a href="./index.html">素敵曜日 - JavaScript Lab</a> > <a href="./reference.html">reference</a> > <a href="./help.html">HELP</a>
             <div style="clear:both;text-align:center;">

@@ -4,6 +4,7 @@
         <meta charset="UTF-8"/>
         <title>素敵曜日 - JavaScript Lab - geolocation</title>
         <script type="text/javascript" src="./js/init.js"></script>
+        <script type="text/javascript" src="./js/category.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/styles.css"/>
         <style>
             </style>
@@ -154,11 +155,16 @@
         
         <hr style="clear:both;"/>
         
-        <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
-        <script>
-            displayCategoryListElement();
-            </script>
-        <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
+        <div id="category" style="width:50%;">
+            
+            <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
+            <script>
+                setCategoryStyle();
+                displayCategoryListElement(this);
+                </script>
+            <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
+            
+        </div>
         
         <hr style="clear:both;"/>
         
