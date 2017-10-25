@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ja" target="_blank">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>素敵曜日 - JavaScript Lab - class Date</title>
+        <script type="text/javascript" src="./js/init.js"></script>
+        <script type="text/javascript" src="./js/mypage.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/styles.css"/>
+        <style id="style">
+            </style>
+    </head>
+    <body>
+        <header>
+            <nav class="mainMenuList">
+                <menu>
+                    <li class="mainMenuList"><a class="mainMenu" href="http://sunstripe.main.jp/">HOME</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="http://sunstripe.main.jp/lab/">素敵曜日</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../DesignLab/index.html">Design Lab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../CSSLab/index.html">CSSLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../HTMLLab/index.html">HTMLLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../PHPLab/index.html">PHPLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu selected" href="../JavaScriptLab/index.html">JavaScriptLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../GitMaster/index.html">GitMaster</a></li>
+                </menu>
+            </nav>
+        </header>
+        
+        <hr style="clear:both;"/>
+        <!-- Menu エリアを JavaScriptで表示する// -->
+        <script>
+            displayMenuListElement();
+            </script>
+        <!-- Menu エリアを JavaScriptで表示する// -->
+        
+        <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
+        <script>
+            addDifferenceElement();
+            </script>
+        <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
+        
+        <h3>document.lastModified</h3>
+        <br />
+
+        <h2>STYLE</h2>
+        <textarea id='displayStyleDocumentLastModified' style="width:100%;height:100px;">
+        </textarea>
+        
+        <h2>DISPLAY</h2>
+        
+        <!-- start //-->
+        <h4>ファイルの更新日時を取得</h4>
+        <script>
+            lastModified = document.lastModified
+            </script>
+        lastModified = document.lastModified
+        <br />
+        <script>
+            document.write(">> " + lastModified);
+            </script>
+        <br />
+        <!-- end //-->
+        
+        <h1>function</h1>
+        
+        <h2>要素の取得</h2>
+        
+        <h3>document.getElementById(<span style="color:red;">"id"</span>)</h3>
+        <br />
+        
+        <h2>STYLE</h2>
+        <textarea id='displayStyleDocument_getElementById' style="width:100%;height:100px;">
+        </textarea>
+        
+        <h2>DISPLAY</h2>
+        
+        <!-- start //-->
+        <h4>idの指定を取得</h4>
+        <script>
+            //
+            element = document.getElementById('displayStyleDocument_getElementById');
+            </script>
+        element = document.getElementById('displayStyleDocument_getElementById');
+        <br />
+        <script>
+            document.write(">> " + element);
+            </script>
+        <br />
+        <!-- end //-->
+        
+        <h3>document.getElementsByClassName(<span style="color:red;">"class"</span>)</h3>
+        <br />
+
+        <h2>STYLE</h2>
+        <textarea id='displayStyleDocument_getElementsByClassName' class="displayStyleDocument_getElementsByClassName" style="width:100%;height:100px;">
+        classの指定を取得</textarea>
+        
+        <h2>DISPLAY</h2>
+        
+        <!-- start //-->
+        <h4>classの指定を取得</h4>
+        <script>
+            //
+            elements = document.getElementsByClassName('displayStyleDocument_getElementsByClassName');
+            </script>
+        elements = document.getElementsByClassName('displayStyleDocument_getElementsByClassName');
+        <br />
+        <script>
+            document.write(">> " + elements + "<br />");
+            document.write(">> " + elements[0] + "<br />");
+            document.write(">> " + elements[0].innerHTML + "<br />");
+            </script>
+        <br />
+        <!-- end //-->
+        
+        <h3>document.getElementsByTagName(<span style="color:red;">"tag"</span>)</h3>
+        <br />
+        
+        <h2>STYLE</h2>
+        <displayStyleDocument_getElementsByTagName id='displayStyleDocument_getElementsByTagName' class="displayStyleDocument_getElementsByTagName" style="width:100%;height:100px;">
+        タグの指定を取得</displayStyleDocument_getElementsByTagName>
+        
+        <h2>DISPLAY</h2>
+        
+        <!-- start //-->
+        <h4>タグの指定を取得</h4>
+        <script>
+            //
+            elements = document.getElementsByTagName('displayStyleDocument_getElementsByTagName');
+            </script>
+        elements = document.getElementsByTagName('displayStyleDocument_getElementsByTagName');
+        <br />
+        <script>
+            document.write(">> " + elements + "<br />");
+            document.write(">> " + elements[0] + "<br />");
+            document.write(">> " + elements[0].innerHTML + "<br />");
+            </script>
+        <br />
+        <!-- end //-->
+        
+        <h3>document.querySelector(<span style="color:red;">"#idSelector .classSelector h1"</span>)</h3>
+        <br />
+        
+        <h2>STYLE</h2>
+        <style>
+            #idSelector .classSelector h1 {
+                color:red;
+            }
+        </style>
+        <div id='idSelector' class="classSelector" style="width:100%;height:100px;">
+            <h1>セレクターの指定を取得</h1></div>
+        
+        <h2>DISPLAY</h2>
+        
+        <!-- start //-->
+        <h4>css セレクターの指定を取得</h4>
+        <script>
+            //
+            element = document.querySelector('#idSelector .classSelector h1');
+            </script>
+        element = document.querySelector('#idSelector .classSelector h1');
+        <br />
+        <script>
+            document.write(">> " + element + "<br />");
+            </script>
+        <br />
+        <!-- end //-->
+        //cssセレクタで指定
+        document.querySelectorAll('a'); //すべて取得
+        <h3>new Date()</h3>
+        
+        <h2>STYLE</h2>
+        <textarea id='displayStyleNewDate' style="width:100%;height:100px;">
+        </textarea>
+        
+        <h2>DISPLAY</h2>
+        
+        <!-- start //-->
+        <h4>秒数を指定</h4>
+        <script>
+            date = new Date(msec); // Date
+            </script>
+        date = new Date(msec);<br />
+        <span style="color:white;">＊ msecは秒数が入ってます</span>
+        <br />
+        
+        <script>
+            document.write(">> " + date);
+            </script>
+        <br />
+        <!-- end //-->
+        
+        <!-- start //-->
+        <h4>フォーマットに対応した文字列を指定</h4>
+        <script>
+            date = new Date("Thu, 06 Sep 2017 00:00:00 +0900"); // Date
+            </script>
+        date = new Date("Thu, 06 Sep 2017 00:00:00 +0900");
+        <br />
+        <script>
+            document.write(">> " + date);
+            </script>
+        <!-- end //-->
+        
+        <!-- start //-->
+        <h4>日付の文字列を指定</h4>
+        <script>
+            date = new Date("2017/11/12 10:00:00"); // Date
+            </script>
+        date = new Date("2017/11/12 10:00:00");
+        <br />
+        <script>
+            document.write(">> " + date);
+            </script>
+        <br />
+        <!-- end //-->
+        
+        <h3>Date.getYear</h3>
+        <br />
+        Date.prototype.getYear は 1900 年からの年数で非推奨。
+
+        <h2>STYLE</h2>
+        <textarea id='displayStyleDateGetYear' style="width:100%;height:100px;">
+        </textarea>
+        
+        <h2>DISPLAY</h2>
+        
+        <!-- start //-->
+        <h4>日付データの年を表示</h4>
+        <script>
+            date = new Date("Thu, 06 Sep 2017 12:00:00 +0900");
+            </script>
+        <br />
+        <span style="color:white;">＊ date = new Date("Thu, 06 Sep 2017 12:00:00 +0900")を指定</span>
+        date.getYear();
+        <br />
+        <script>
+            document.write(">> " + date.getYear());
+            </script>
+        <br />
+        <!-- end //-->
+
+        <h3>Date.getFullYear</h3>
+        <br />
+        Date.prototype.getFullYear を使う。
+
+        <h2>STYLE</h2>
+        <textarea id='displayStyleDateGetFullYear' style="width:100%;height:100px;">
+        </textarea>
+
+        <h2>DISPLAY</h2>
+        
+        <!-- start //-->
+        <h4>日付データの年を表示</h4>
+        <script>
+            date = new Date("Thu, 06 Sep 2017 12:00:00 +0900");
+            </script>
+        <span style="color:white;">＊ date = new Date("Thu, 06 Sep 2017 12:00:00 +0900")を指定</span>
+        <br />
+        date.getFullYear();
+        <br />
+        <script>
+            document.write(">> " + date.getFullYear());
+            </script>
+        <br />
+        <!-- end //-->
+        
+        <h3>Date.getMonth</h3>
+        <br />
+        getMonth を使う。<br />
+        new Date の第 2 引数でも、Date.prototype.getMonth でも、月は 0-11で表す。
+        
+        <h2>STYLE</h2>
+        <textarea id='displayStyleDateGetMonth' style="width:100%;height:100px;">
+        </textarea>
+        
+        <h2>DISPLAY</h2>
+        
+        <!-- start //-->
+        <h4>日付データの月を表示</h4>
+        <script>
+            date = new Date(2017, 9, 19);
+            </script>
+        <span style="color:white;">＊ date = new Date(2017, 9, 19);を指定</span>
+        <br />
+        date.getMonth();
+        <br />
+        <script>
+            document.write(">> " + date.getMonth());
+            </script>
+        <br />
+        <br />
+        <!-- end //-->
+        
+        <h3>Date.getDate</h3>
+        <br />
+        getDate を使う。<br />
+        new Date の第 2 引数でも、Date.prototype.getDate でも、日付は 1-31で表す。
+        
+        <h2>STYLE</h2>
+        <textarea id='displayStyleDateGetMonth' style="width:100%;height:100px;">
+        </textarea>
+        
+        <h2>DISPLAY</h2>
+        
+        <!-- start //-->
+        <h4>日付データの 日付を表示</h4>
+        
+        <script>
+            date = new Date(2017, 9, 19);
+            </script>
+        <span style="color:white;">＊ date = new Date(2017, 9, 19);を指定</span>
+        <br />
+        date.getDate();
+        <br />
+        <script>
+            document.write(">> " + date.getDate());
+            </script>
+        <br />
+        <br />
+        
+        <!-- end //-->
+        
+        <h3>Date.getDay</h3>
+        <br />
+        Date.prototype.getDay は 0 を日曜とする曜日を返す。
+        
+        <h2>STYLE</h2>
+        <textarea id='displayStyleDateGetMonth' style="width:100%;height:100px;">
+        </textarea>
+        
+        <h2>DISPLAY</h2>
+        
+        <!-- start //-->
+        <h4>日付データの 曜日（数字）を表示</h4>
+        
+        <script>
+            date = new Date(2017, 9, 19);
+            </script>
+        <span style="color:white;">＊ date = new Date(2017, 9, 19);を指定</span>
+        <br />
+        date.getDay();
+        <br />
+        <script>
+            document.write(">> " + date.getDay());
+            </script>
+        <br />
+        <h4>曜日（数字）を月ー日で指定する場合</h4>
+        <span style="color:white;">例：
+        <script>
+            var daysData = [
+                            {title:"日"},
+                            {title:"月"},
+                            {title:"火"},
+                            {title:"水"},
+                            {title:"木"},
+                            {title:"金"},
+                            {title:"土"},
+                            ];
+            </script>
+        <br />
+        daysData = [
+        {title:"日"},
+        {title:"月"},
+        {title:"火"},
+        {title:"水"},
+        {title:"木"},
+        {title:"金"},
+        {title:"土"},
+        ];
+        <br />
+        daysData[date.getDay()].title
+        <br />
+        </span>
+        <script>
+                            document.write(">> " + daysData[date.getDay()].title);
+            
+            </script>
+        <br />
+        <!-- end //-->
+        
+        <footer>
+            <a href="http://sunstripe.main.jp/">HOME</a> > <a href="./index.html">素敵曜日 - JavaScript Lab</a> > <a href="./reference.html">reference</a> > <a href="./help.html">HELP</a>
+            <div style="clear:both;text-align:center;">
+                
+                &copy; 2011 - <script>
+                    var newDate = new Date();
+                    //年・月・日・曜日を取得する
+                    var year = newDate.getFullYear();
+                    document.write(year);
+                    </script> Team Sun Stripe
+            </div>
+        </footer>
+    </body>
+</html>
