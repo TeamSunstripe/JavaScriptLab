@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja" target="_blank">
+    <head>
+        <meta charset="UTF-8">
+            <title>素敵曜日 - JavaScript Lab - Sitemap</title>
+            <script type="text/javascript" src="./js/init.js"></script>
+            <script type="text/javascript" src="./js/qrcodejs/qrcode.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="./css/styles.css"/>
+            <style>
+                </style>
+    </head>
+    <body>
+        <header>
+            <nav class="mainMenuList">
+                <menu>
+                    <li class="mainMenuList"><a class="mainMenu" href="http://sunstripe.main.jp/">HOME</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="http://sunstripe.main.jp/lab/">素敵曜日</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../DesignLab/index.html">Design Lab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../CSSLab/index.html">CSSLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../HTMLLab/index.html">HTMLLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../PHPLab/index.html">PHPLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu selected" href="../JavaScriptLab/index.html">JavaScriptLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../GitMaster/index.html">GitMaster</a></li>
+                </menu>
+            </nav>
+        </header>
+        
+        <h3>サイトマップ</h3>
+        <script>
+            var siteItems = [
+                             {
+                             title:"トップページ",
+                             url:"index.html",
+                             discription:"",
+                             },
+                             {
+                             title:"リファレンス",
+                             url:"reference.html",
+                             discription:"",
+                             },
+                             {
+                             title:"ヘルプ",
+                             url:"help.html",
+                             discription:"",
+                             },
+                             {
+                             title:"ナビゲーション",
+                             url:"navigator.html",
+                             discription:"",
+                             },
+                             {
+                             title:"クラス document",
+                             url:"classDocument.html",
+                             discription:"",
+                             },
+                             {
+                             title:"ゲオロケーション",
+                             url:"geolocation.html",
+                             discription:"",
+                             },
+                             {
+                             title:"ゲーム一覧",
+                             url:"Game/index.html",
+                             discription:"",
+                             },            ];
+
+            var html = "";
+            html += '<table style="width:100%;">';
+            for (var s = 0; s < siteItems.length; s++)
+            {
+                html += '<tr>';
+                html += '<td>';
+                html += siteItems[ s ].title;
+                html += '</td>';
+                html += '<td>';
+                html += '<a href="';
+                html += siteItems[ s ].url;
+                html += '">';
+                html += siteItems[ s ].url;
+                html += '</a>';
+                html += '</td>';
+                html += '<td>';
+                var QRID = 'QR_' + convertAbsUrl(siteItems[ s ].url);
+                html += '<div id="' + QRID + '" >';
+                html += '</div>';
+                html += '</td>';
+                html += '<td>';
+                html += siteItems[ s ].discription;
+                html += '</td>';
+                html += '</tr>';
+            }
+        html += '</table>';
+        
+        document.write(html);
+        
+        for (var s = 0; s < siteItems.length; s++)
+        {
+            var QRID = 'QR_' + convertAbsUrl(siteItems[ s ].url);
+            var qrcode = new QRCode(QRID, {
+                                    text: convertAbsUrl(siteItems[ s ].url),
+                                    width: 128,
+                                    height: 128,
+                                    colorDark : "#000000",
+                                    colorLight : "#ffffff",
+                                    correctLevel : QRCode.CorrectLevel.H
+                                    });
+        }
+        
+        function convertAbsUrl(relativePath){
+            var anchor = document.createElement("a");
+            anchor.href = "http://sunstripe.main.jp/DesignLab/" + relativePath;
+            return anchor.href;
+        }
+            </script>
+        
+        <script>
+            var siteItemss = [
+
+                             ];
+            </script>
+
+        <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
+        <script>
+            addDifferenceElement();
+            </script>
+        <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
+        
+        <div id="test"></div>
+        <script>
+            var qrcode = new QRCode("test", {
+                                    text: "http://jindo.dev.naver.com/collie",
+                                    width: 128,
+                                    height: 128,
+                                    colorDark : "#000000",
+                                    colorLight : "#ffffff",
+                                    correctLevel : QRCode.CorrectLevel.H
+                                    });
+                                    
+                                    document.write(document.getElementById("test").innerHTML);
+            </script>
+
+        
+        <footer>
+            <a href="http://sunstripe.main.jp/">HOME</a> > <a href="./index.html">素敵曜日 - JavaScript Lab</a> > <a href="./reference.html">reference</a> > <a href="./help.html">HELP</a>
+            <div style="clear:both;text-align:center;">
+                
+                &copy; 2011 - <script>
+                    var newDate = new Date();
+                    //年・月・日・曜日を取得する
+                    var year = newDate.getFullYear();
+                    document.write(year);
+                    </script> Team Sun Stripe
+            </div>
+        </footer>
+    </body>
+</html>
