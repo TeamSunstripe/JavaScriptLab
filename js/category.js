@@ -21,64 +21,64 @@ var categoryStyles = {
 //カテゴリー一覧アイテム
 var categoryItems = [
                      {
-                     "title":"JavaScript",
-                     "id":"category_JavaScript",
-                     "src":"./images/blue_maru.png",
-                     "url":"http://sunstripe.main.jp/JavaScriptLab/",
-                     "items":[
+                     title:"JavaScript",
+                     id:"category_JavaScript",
+                     src:"./images/blue_maru.png",
+                     url:"http://sunstripe.main.jp/JavaScriptLab/",
+                     items:[
                      ]
                      },
                      
                      {
-                     "title":"Design",
-                     "id":"category_Design",
-                     "src":"./images/blue_maru.png",
-                     "url":"http://sunstripe.main.jp/DesignLab/",
-                     "items":[
+                     title:"Design",
+                     id:"category_Design",
+                     src:"./images/blue_maru.png",
+                     url:"http://sunstripe.main.jp/DesignLab/",
+                     items:[
                      ]
                      },
                      
                      {
-                     "title":"CSS",
-                     "id":"category_CSS",
-                     "src":"./images/blue_maru.png",
-                     "url":"http://sunstripe.main.jp/CSSLab/",
-                     "items":[
+                     title:"CSS",
+                     id:"category_CSS",
+                     src:"./images/blue_maru.png",
+                     url:"http://sunstripe.main.jp/CSSLab/",
+                     items:[
                      ]
                      },
                      
                      {
-                     "title":"HTML",
-                     "id":"category_HTML",
-                     "src":"./images/blue_maru.png",
-                     "url":"http://sunstripe.main.jp/HTMLLab/",
-                     "items":[
+                     title:"HTML",
+                     id:"category_HTML",
+                     src:"./images/blue_maru.png",
+                     url:"http://sunstripe.main.jp/HTMLLab/",
+                     items:[
                      ]
                      },
                      
                      {
-                     "title":"PHP",
-                     "id":"category_php",
-                     "src":"./images/blue_maru.png",
-                     "url":"http://sunstripe.main.jp/PHPLab/",
-                     "items":[
+                     title:"PHP",
+                     id:"category_php",
+                     src:"./images/blue_maru.png",
+                     url:"http://sunstripe.main.jp/PHPLab/",
+                     items:[
                      ]
                      },
                      
                      {
-                     "title":"Git",
-                     "id":"category_git",
-                     "src":"./images/blue_maru.png",
-                     "url":"http://sunstripe.main.jp/GitMaster/",
-                     "items":[
+                     title:"Git",
+                     id:"category_git",
+                     src:"./images/blue_maru.png",
+                     url:"http://sunstripe.main.jp/GitMaster/",
+                     items:[
                               {
-                              "title":"基礎編"
+                              title:"基礎編"
                               },
                               {
-                              "title":"応用編"
+                              title:"応用編"
                               },
                               {
-                              "title":"リファレンス"
+                              title:"リファレンス"
                               },
                      ]
                      },
@@ -145,11 +145,11 @@ function displayCategoryElement (number) {
         html += '" style="height:20px;width:20px;padding-left:10px;padding-right:10px;"/>';
     }
     html += categoryItems[number].title;
-    html += '<span class="';
+    html += '<div class="';
     html += 'category_mark';
-    html += '">';
+    html += '" style="float:right;">';
     html += categoryItems[number].items.length;
-    html += '</span>';
+    html += '</div>';
     html += '</h4>';
     categoryElement.innerHTML = html;
 }
