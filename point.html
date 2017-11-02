@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xml:lang="ja" lang="ja">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=10.0,user-scalable=yes" />
+        <link rel="stylesheet" href="./sheet/css/styles.css" type="text/css" />
+        <title>きゃらあげ素敵曜日チャンネル</title>
+        <meta name="copyright" content="Copyright &copy; 2017 きゃらあげ素敵曜日チャンネル All Rights Reserved.">
+            
+            <meta name="keywords" content="きゃらあげ素敵曜日チャンネル" />
+            <meta name="description" content="きゃらあげ素敵曜日チャンネル　ー　ポイントカード" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=10.0, user-scalable=yes" />
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="http://sunstripe.main.jp/rss.xml" />
+            <link rel="alternate" media="handheld" href="http://sunstripe.main.jp/" />
+            
+            </head>
+    <style>
+        html {
+            margin:0;
+            background-color:rgba(0,0,0,0);
+        }
+    body {
+        margin:0;
+        background-color:rgba(0,0,0,1);
+        padding: 5px 20px;
+        font-family: 'Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4', sans-serif;
+    }
+    h1 {
+        color:white;
+        text-align:center;
+    }
+    </style>
+    <script>
+        window.onload = function () {
+            var popupView = document.getElementById("popup");
+            //popupView.style.width = "300px";
+        }
+    var data = {"point":10}
+    </script>
+    <body>
+        <h1>きゃらあげ素敵曜日チャンネル - ポイントカード</h1>
+            <script>
+                for (var k = 0;k < 10; k++) {
+                    document.write("<img id='karaage" + k + "' src='./images/karaage.jpg' width='20%' style='float:left;' />");
+                }
+            </script>
+            
+            
+            <script>
+                for (var i = 0; i < data.point; i++ ) {
+                    var karaage_no = document.getElementById("karaage" + i);
+                    karaage_no.src = "./images/karaage_no.jpg";
+                }
+            
+                
+                var cook;
+                var startCookie,endCookie;
+                var cnt;
+                var karaage = document.getElementById("karaage");
+                var message = document.getElementById("message");
+                var log = document.getElementById("log");
+                
+                var nowDate,nextDate;  //日付データを格納する変数
+                var expirationDates = 1;   //cookieの期限（今回は1日）
+                
+                //現在の日付データを取得
+                nowDate = new Date();
+                
+                //1日後の日付データを作成
+                nowDate.setTime(nowDate.getTime() + expirationDates * 24 * 60 * 60 * 1000);//24 * 60 * 60 * 1000);
+                
+                //GMT形式に変換して変数date2に格納する
+                nextDate = nowDate.toGMTString();
+                // タッチイベントに対応している
+                if(window.TouchEvent){
+                    karaage.src = "./images/karaage.jpg";
+                    
+                    // イベントリスナーに対応している
+                    if(document.addEventListener){
+                        // ------------------------------------------------------------
+                        // タッチすると実行される関数
+                        // ------------------------------------------------------------
+                        function karaage69denonightNoCheck(){
+                            alert("次回１日後に更新されます！\nろくでもない夜をよろしくお願いいたします。");
+                            location.replace('http://sunstripe.main.jp/event/karaage69demonight/');
+                        }
+                        function karaage69denonightCheck(){
+                            var result = confirm("店員さんに画面を見せてください！");
+                            if (result) {
+                                karaage.src = "./images/karaage_no.jpg";
+                                karaage.onclick = karaage69denonightNoCheck;
+                                message.innerHTML = "次回、１日後に更新されます！";
+                            } else {
+                                karaage.src = "./images/karaage.jpg";
+                                message.innerHTML = "からあげを食べよう！";
+                            }
+                        }
+                    } else {
+                        //log.innerHTML = "LOG";
+                    }
+                    if (navigator.cookieEnabled)
+                    {
+                        cook=document.cookie + ";";
+                        startCookie = cook.indexOf("counts=",0);
+                        if (startCookie == -1)
+                        {
+                            log.innerHTML = "1回目の訪問です！"
+                            document.cookie = "counts=1;expires=" + nextDate;
+                            karaage.onclick = karaage69denonightCheck;
+                        }
+                        else
+                        {
+                            endCookie = cook.indexOf(";",startCookie);
+                            cnt = cook.substring(startCookie+7,endCookie);
+                            try
+                            {
+                                cnt = parseInt(cnt)+1;
+                                 log.innerHTML = cnt + "回目の訪問です！";
+                                document.cookie = "counts=" + cnt + ";expires=" + nextDate;
+                                karaage.src = "./images/karaage_no.jpg";
+                                karaage.onclick = karaage69denonightNoCheck;
+                                message.innerHTML = "次回、１日後に更新されます！";
+                            }
+                            catch(e)
+                            {
+                                log.innerHTML = "訪問回数の取得に失敗しました。";
+                                log.innerHTML += "e = ",e,";";
+                                karaage.src = "./images/karaage_no.jpg";
+                                karaage.onclick = karaage69denonightNoCheck;
+                                message.innerHTML = "次回、１日後に更新されます！";
+                            }
+                        }
+                    } else {
+                        document.write("cookieが使用できません。");
+                        karaage.src = "./images/karaage_no.jpg";
+                        karaage.onclick = karaage69denonightNoCheck;
+                        message.innerHTML = "次回、１日後に更新されます！";
+                    }
+                } else {
+                    karaage.src = "./images/karaage_no.jpg";
+                    karaage.onclick = karaage69denonightNoCheck;
+                    message.innerHTML = "次回、１日後に更新されます！";
+                }
+            </script>
+        </div>
+        <div style="position:fixed;bottom:0;text-align:right;width:90%;">
+            Copyright &copy; <script>var date = new Date(); document.write(date.getFullYear());</script>
+            <br/> <a href="../">ろくでもない夜xきゃらあげ素敵曜日チャンネル<br/>Team. Sun Stripe</a><br/>All Rights Reserved.
+        </div>
+    </body>
+</html>
