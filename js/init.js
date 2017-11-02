@@ -38,3 +38,152 @@ function checkDifference () {
         }
     }
 }
+
+/** STATUS 状態を JavaScriptで表示する **/
+
+var statusItems = [
+                   {
+                   "id":"status001",
+                   "title":"改善",
+                   },
+                   {
+                   "id":"status002",
+                   "title":"リリース",
+                   },
+                   {
+                   "id":"status003",
+                   "title":"リファクタリング",
+                   },
+];
+
+// ステータス表示部
+function addStatusElement () {
+    var statusElement = document.createElement("select");
+    statusElement.id = "status";
+    // DOM に新しく作られた要素とその内容を追加します。
+    document.body.appendChild(statusElement);
+    for (var s = 0; s < statusItems.length; s++) {
+        var statusElementOption = document.createElement("option");
+        statusElementOption.id = statusItems[s].id;
+        statusElement.appendChild(statusElementOption);
+        displayStatusElement(s);
+    }
+}
+
+function displayStatusElement (number) {
+    var statusElement = document.getElementById(statusItems[number].id);
+    //class追加
+    statusElement.classList.add('statusList');
+    statusElement.innerHTML = "" + "<span class='" + "redMaru" + "'>" + statusItems[number].title + "</span>";
+}
+
+/** STATUS 状態を JavaScriptで表示する **/
+
+
+var categoryItems = [
+                     {
+                     "title":"JavaScript",
+                     "id":"category_JavaScript",
+                     "items":[
+                     {},
+                     {},
+                     {},
+                     {},
+                     {},
+                     {},
+                     {},
+                     {},
+                     {},
+                     {},
+                     {},
+                     ]
+                     },
+                     
+                     {
+                     "title":"Design",
+                     "id":"category_Design",
+                     "items":[
+                     {},
+                     {},
+                     {},
+                     {},
+                     {},
+                     {},
+                     ]
+                     },
+                     
+                     {
+                     "title":"CSS",
+                     "id":"category_CSS",
+                     "items":[
+                     {},
+                     {},
+                     ]
+                     },
+                     
+                     {
+                     "title":"HTML",
+                     "id":"category_HTML",
+                     "items":[
+                     {},
+                     {},
+                     {},
+                     {},
+                     {},
+                     {},
+                     ]
+                     },
+                     
+                     {
+                     "title":"PHP",
+                     "id":"category_php",
+                     "items":[
+                     {},
+                     {},
+                     {},
+                     {},
+                     {},
+                     {},
+                     ]
+                     },
+                     
+                     {
+                     "title":"Git",
+                     "id":"category_git",
+                     "items":[
+                     {},
+                     {},
+                     {},
+                     {},
+                     {},
+                     {},
+                     ]
+                     },
+                     
+                     ];
+
+/** 最終更新日 から 経過しているかのエリアを JavaScriptで表示する **/
+
+function displayCategoryListElement ()
+{
+    var categoryListElement = document.createElement("div");
+    categoryListElement.id = "categoryList";
+    categoryListElement.innerHTML = "<h3>カテゴリー一覧</h3>";
+    
+    // DOM に新しく作られた要素とその内容を追加します。
+    document.body.appendChild(categoryListElement);
+    
+    for (var c = 0; c < categoryItems.length; c++) {
+        var categoryElement = document.createElement("div");
+        categoryElement.id = categoryItems[c].id;
+        document.body.appendChild(categoryElement);
+        displayCategoryElement(c);
+    }
+}
+
+function displayCategoryElement (number) {
+    var categoryElement = document.getElementById(categoryItems[number].id);
+    //class追加
+    categoryElement.classList.add('categoryList');
+    categoryElement.innerHTML = "<h4>" + categoryItems[number].title + "<span class='" + "redMaru" + "'>" + categoryItems[number].items.length + "</span></h4>";
+}

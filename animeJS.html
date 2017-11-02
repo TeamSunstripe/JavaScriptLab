@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja" target="_blank">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>素敵曜日 - JavaScript Lab - anime.js</title>
+        <script type="text/javascript" src="./js/init.js"></script>
+        <script src="./js/anime-master/anime.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/styles.css"/>
+        <style>
+            .menuList {
+                width:100px;
+                height:100px;
+            }
+        .floatLeft {
+            float:left;
+        }
+        .floatRight {
+            float:right;
+        }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav class="mainMenuList">
+                <menu>
+                    <li class="mainMenuList"><a class="mainMenu" href="http://sunstripe.main.jp/">HOME</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="http://sunstripe.main.jp/lab/">素敵曜日</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../DesignLab/index.html">Design Lab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../CSSLab/index.html">CSSLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../HTMLLab/index.html">HTMLLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../PHPLab/index.html">PHPLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu selected" href="../JavaScriptLab/index.html">JavaScriptLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../GitMaster/index.html">GitMaster</a></li>
+                </menu>
+            </nav>
+        </header>
+        
+        <h2>anime.js</h2>
+        <div>
+            <h3>サンプル</h3>
+            <style>
+                .sample01 {
+                    width: 50px;
+                    height:50px;
+                    border: 1px;
+                    background-color: darkblue;
+                }
+            </style>
+            <div class="sample01"></div>
+            <script>
+                anime({
+                      targets: '.sample01',
+                      translateX: 500,
+                      rotate: 1800,
+                      backgroundColor: 'rgba(255,0,0,0.5)',
+                      borderRadius: 40,
+                      scale: 0.5,
+                      delay: 1000,
+                      duration: 10000,
+                      });
+                </script>
+        </div>
+        
+        <div>
+            <h3>サンプル(.translateX500)</h3>
+            <style>
+                .translateX500 {
+                    width: 50px;
+                    height:50px;
+                    border: 1px;
+                    background-color: darkblue;
+                }
+            </style>
+            <div class="translateX500"></div>
+            <script>
+                anime({
+                      targets: '.translateX500',
+                      translateX: 500,
+                      });
+                </script>
+            
+            
+        </div>
+        <div>
+            <h3>サンプル(.rotate1800)</h3>
+            <style>
+                .rotate1800 {
+                    width: 50px;
+                    height:50px;
+                    border: 1px;
+                    background-color: darkblue;
+                }
+            </style>
+            <div class="rotate1800"></div>
+            <script>
+                anime({
+                      targets: '.rotate1800',
+                      rotate: 1800,
+                      });
+                </script>
+        </div>
+        <div>
+            <h3>サンプル(.backgroundColorR255)</h3>
+            <style>
+                .backgroundColorR255 {
+                    width: 50px;
+                    height:50px;
+                    border: 1px;
+                    background-color: darkblue;
+                }
+            </style>
+            <div class="backgroundColorR255"></div>
+            <script>
+                anime({
+                      targets: '.backgroundColorR255',
+                      backgroundColor: 'rgba(255,0,0,0.5)',
+                      });
+                </script>
+        </div>
+        <div>
+            <h3>サンプル(.borderRadius40)</h3>
+            <style>
+                .borderRadius40 {
+                    width: 50px;
+                    height:50px;
+                    border: 1px;
+                    background-color: darkblue;
+                }
+            </style>
+            <div class="borderRadius40"></div>
+            <script>
+                anime({
+                      targets: '.borderRadius40',
+                      borderRadius: 40,
+                      });
+                </script>
+            
+        </div>
+        <div>
+            <h3>サンプル(.scale0_5)</h3>
+            <style>
+                .scale0_5 {
+                    width: 50px;
+                    height:50px;
+                    border: 1px;
+                    background-color: darkblue;
+                }
+            </style>
+            <div class="scale0_5"></div>
+            <script>
+                anime({
+                      targets: '.scale0_5',
+                      scale: 0.5,
+                      });
+                </script>
+            
+        </div>
+        <div>
+            <h3>サンプル(.delay1000)</h3>
+            <style>
+                .delay1000 {
+                    width: 50px;
+                    height:50px;
+                    border: 1px;
+                    background-color: darkblue;
+                }
+            </style>
+            <div class="delay1000"></div>
+            <script>
+                anime({
+                      targets: '.delay1000',
+                      delay: 1000,
+                      scale: 0.5,
+                      });
+                </script>
+            
+        </div>
+        <div>
+            <h3>サンプル(.duration10000)</h3>
+            <style>
+                .duration10000 {
+                    width: 50px;
+                    height:50px;
+                    border: 1px;
+                    background-color: darkblue;
+                }
+            </style>
+            <div class="duration10000"></div>
+            <script>
+                anime({
+                      targets: '.duration10000',
+                      duration: 10000,
+                      scale: 0.5,
+                      });
+                </script>
+            
+        </div>
+        <!-- Menu エリアを JavaScriptで表示する// -->
+        <script>
+            displayMenuListElement();
+            </script>
+        <!-- Menu エリアを JavaScriptで表示する// -->
+        
+        <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
+        <script>
+            addDifferenceElement();
+            </script>
+        <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
+        
+        <div id="contents">
+            <a href="./Game/index.html">
+                <div id="contentsGame" style="width:200px;height:200px;background-color:rgba(255,255,255,0.5);">
+                </div>
+            </a>
+        </div>
+        
+        <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
+        <script>
+            displayCategoryListElement();
+            </script>
+        <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
+        
+        <footer>
+            <a href="http://sunstripe.main.jp/">HOME</a> > <a href="./index.html">素敵曜日 - JavaScript Lab</a> > <a href="./reference.html">reference</a> > <a href="./help.html">HELP</a>
+            <div style="clear:both;text-align:center;">
+                
+                &copy; 2011 - <script>
+                    var newDate = new Date();
+                    //年・月・日・曜日を取得する
+                    var year = newDate.getFullYear();
+                    document.write(year);
+                    </script> Team Sun Stripe
+            </div>
+        </footer>
+    </body>
+</html>
