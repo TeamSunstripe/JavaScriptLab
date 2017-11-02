@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja" target="_blank">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>素敵曜日 - JavaScript Lab</title>
+        <script type="text/javascript" src="./js/init.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/styles.css"/>
+        <style>
+            </style>
+    </head>
+    <body>
+        <header>
+            <nav class="mainMenuList">
+                <menu>
+                    <li class="mainMenuList"><a class="mainMenu" href="http://sunstripe.main.jp/">HOME</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="http://sunstripe.main.jp/lab/">素敵曜日</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../DesignLab/index.html">Design Lab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../CSSLab/index.html">CSSLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../HTMLLab/index.html">HTMLLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../PHPLab/index.html">PHPLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu selected" href="../JavaScriptLab/index.html">JavaScriptLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../GitMaster/index.html">GitMaster</a></li>
+                </menu>
+            </nav>
+        </header>
+        
+        
+        <style>
+            @import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+            #div-tweet {
+                font-size: 20px;
+                font-family: 'Noto Sans Japanese', sans-serif;
+            }
+        </style>
+        
+        
+        <script>
+            function apiResulut() {
+                return {
+                    "results":{
+                        "api_version":"2.0.1",
+                        "status":"api_version",
+                        "code":"",
+                        "error":[
+                                 {
+                                 "message":"サービスエリアコードが不正です。",
+                                 }
+                                 ]
+                    },
+                }
+            };
+        
+        var api_resulut = apiResulut();
+        
+        if ( parseFloat(api_resulut.results.api_version) >= 2.0 )
+        {
+            alert(api_resulut.results.api_version);
+        }
+        else
+        {
+            var errorMesssage = "";
+            for (var e = 0; e < api_resulut.results.error.length;e++)
+            {
+                errorMesssage += '<div style="background-color:white;color:red;padding:5px;">';
+                errorMesssage += api_resulut.results.error[ e ].message;
+                errorMesssage += '</div>';
+            }
+            document.write(errorMesssage);
+        }
+        
+            </script>
+        
+        <a href="http://search.twitter.com/search.json?q=%23wordpress">%23wordpress</a>
+        
+        <a href="http://search.twitter.com/search.json?q=wordpress">wordpress</a>
+        
+        <div id="div-tweet">div-tweet</div>
+        <!-- jquery
+         
+         <script src="https://coxde.jquery.com/jquery-2.1.4.min.js"></script>
+         
+         -->
+        
+        <script>
+            (function(){
+             // https://dev.twitter.com/web/tweet-button/web-intent
+             var div_tweet = document.getElementById('div-tweet');
+             var base_url = 'https://twitter.com/intent/tweet';
+             // パラメータ
+             var text = 'Twitter API(Tweet Web Intent) Test';
+             var url = 'http://sunstripe.main.jp/';
+             var via = 'sunstripe2011';
+             var hashtags = 'サンストライプ, TwitterAPI';
+             // 指定したユーザーがおすすめユーザーとして2アカウントまで表示
+             var related = 'sunstripe2011';
+             var tweetid = 0;
+             
+             var tweetLink = '<a href="' + base_url +
+             '?text=' + encodeURIComponent(text) +
+             '&url=' + url +
+             '&via=' + via +
+             '&hashtags=' + hashtags +
+             '&related=' + related +
+             // '&in-reply-to=' + tweetid +
+             '" target="_blank">ツイート</a>';
+             
+             div_tweet.innerHTML = tweetLink;
+             })();
+            </script>
+        
+        <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
+        <script>
+            addDifferenceElement();
+            </script>
+        <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
+        
+        <div id="contents">
+            <a href="./Game/index.html">
+            <div id="contentsGame" style="width:200px;height:200px;background-color:rgba(255,255,255,0.5);">
+            </div>
+            </a>
+        </div>
+        
+        <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
+        <script>
+            displayCategoryListElement();
+            </script>
+        <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
+        
+        <footer>
+            <a href="http://sunstripe.main.jp/">HOME</a> > <a href="./index.html">素敵曜日 - JavaScript Lab</a> > <a href="./reference.html">reference</a> > <a href="./help.html">HELP</a>
+            <div style="clear:both;text-align:center;">
+                
+                &copy; 2011 - <script>
+                    var newDate = new Date();
+                    //年・月・日・曜日を取得する
+                    var year = newDate.getFullYear();
+                    document.write(year);
+                    </script> Team Sun Stripe
+            </div>
+        </footer>
+    </body>
+</html>
