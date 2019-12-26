@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja" target="_blank">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>素敵曜日 - JavaScript Lab</title>
+        <script type="text/javascript" src="./js/init.js"></script>
+        <script type="text/javascript" src="./js/category.js"></script>
+        <script type="text/javascript" src="./js/sidemenu.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/styles.css"/>
+        <style id="style">
+            h1{
+                border: 6px solid rgba(255,200,200,0.5);
+                background:rgba(255,200,200,0.5);
+                border-radius: 240px 15px 100px 15px / 15px 200px 15px 185px;
+                padding: 4%;
+                width: 260px;
+                margin: 10px;
+                color:rgba(255,200,200,0.5);
+            }
+        h2{
+            
+        }
+        h3{
+            
+        }
+        h4{
+            
+        }
+        h5{
+            
+        }
+        h6{
+            
+        }
+        span{
+            
+        }
+        a{
+            
+        }
+        div{
+            
+        }
+        tr{
+            
+        }
+        li{
+            
+        }
+
+            </style>
+    </head>
+    <body>
+        <header>
+            <nav class="mainMenuList">
+                <menu>
+                    <li class="mainMenuList"><a class="mainMenu" href="http://sunstripe.main.jp/">HOME</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="http://sunstripe.main.jp/lab/">素敵曜日</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../DesignLab/index.html">Design Lab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../CSSLab/index.html">CSSLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../HTMLLab/index.html">HTMLLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../PHPLab/index.html">PHPLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu selected" href="../JavaScriptLab/index.html">JavaScriptLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../GitMaster/index.html">GitMaster</a></li>
+                </menu>
+            </nav>
+        </header>
+        <div style="width:50%;float:left;">
+        <script>
+            var elementData = [
+                               {
+                               "title":"h1",
+                               },
+                               {
+                               "title":"h2",
+                               },
+                               {
+                               "title":"h3",
+                               },
+                               {
+                               "title":"h4",
+                               },
+                               {
+                               "title":"h5",
+                               },
+                               {
+                               "title":"h6",
+                               },
+                               {
+                               "title":"span",
+                               },
+                               {
+                               "title":"a",
+                               },
+                               {
+                               "title":"div",
+                               },
+                               {
+                               "title":"tr",
+                               },
+                               {
+                               "title":"li",
+                               },
+                               ];
+            for (var e = 0;e < elementData.length;e++) {
+                document.write("<" + elementData[e].title + " id='" + elementData[e].title + "'>" + elementData[e].title + "</" + elementData[e].title +">");
+                document.write("<textarea id='display_" + elementData[e].title + "' style='width:100%;height:200px;' onChange='changeStyleElement(\"" + elementData[e].title + "\");'></textarea>");
+            }
+            </script>
+        </div>
+        <div style="width:50%;float:right;">
+            <h3>STYLE</h3>
+            <textarea id="styleAll" style="width:100%;height:800px;background-color:black;color:white;"></textarea>
+        </div>
+        <script>
+            function changeStyleElement(elementString) {
+                var element = document.getElementById(elementString);
+                var elementTextarea = document.getElementById("display_" + elementString);
+                element.style = elementTextarea.value;
+                var styleAll = document.getElementById("styleAll");
+                var html = "";
+                for (var e = 0;e < elementData.length;e++) {
+                    var elementTextarea = document.getElementById("display_" + elementData[e].title);
+                    html += elementData[e].title + "{\n" + elementTextarea.value + "\n}\n";
+                }
+                styleAll.value = html;
+            }
+            </script>
+        <hr style="clear:both;"/>
+        <!-- Menu エリアを JavaScriptで表示する// -->
+        <script>
+            displayMenuListElement();
+            </script>
+        <!-- Menu エリアを JavaScriptで表示する// -->
+        
+        <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
+        <script>
+            addDifferenceElement();
+            </script>
+        <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
+        
+        <div id="contents">
+            <a href="./Game/index.html">
+            <div id="contentsGame" style="width:200px;height:200px;background-color:rgba(255,255,255,0.5);">
+            </div>
+            </a>
+        </div>
+        
+        
+        <div id="sidemenu" style="width:30%;">
+            
+            <!-- サイドメニュー一覧エリアを JavaScriptで表示する// -->
+            <script>
+                setSideMenuStyle();
+                displaySideMenuListElement(this);
+                </script>
+            <!-- サイドメニュー一覧エリアを JavaScriptで表示する// -->
+            
+        </div>
+        
+        
+        <div id="category" style="width:50%;">
+            
+            <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
+            <script>
+                setCategoryStyle();
+                displayCategoryListElement(this);
+                </script>
+            <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
+            
+        </div>
+        
+        <footer>
+            <a href="http://sunstripe.main.jp/">HOME</a> > <a href="./index.html">素敵曜日 - JavaScript Lab</a> > <a href="./reference.html">reference</a> > <a href="./help.html">HELP</a>
+            <div style="clear:both;text-align:center;">
+                
+                &copy; 2011 - <script>
+                    var newDate = new Date();
+                    //年・月・日・曜日を取得する
+                    var year = newDate.getFullYear();
+                    document.write(year);
+                    </script> Team Sun Stripe
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja" target="_blank">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>素敵曜日 - JavaScript Lab - navigator - geolocation</title>
+        <script type="text/javascript" src="./js/init.js"></script>
+        <script type="text/javascript" src="./js/category.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/styles.css"/>
+        <style>
+            pre:before {
+                content: "  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20";
+                display: block;
+                height: 86%;
+                width: 2em;
+                position: absolute;
+                left: 0;
+                word-wrap: break-word;
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav class="mainMenuList">
+                <menu>
+                    <li class="mainMenuList"><a class="mainMenu" href="http://sunstripe.main.jp/">HOME</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="http://sunstripe.main.jp/lab/">素敵曜日</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../DesignLab/index.html">Design Lab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../CSSLab/index.html">CSSLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../HTMLLab/index.html">HTMLLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../PHPLab/index.html">PHPLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu selected" href="../JavaScriptLab/index.html">JavaScriptLab</a></li>
+                    <li class="mainMenuList"><a class="mainMenu" href="../GitMaster/index.html">GitMaster</a></li>
+                </menu>
+            </nav>
+            <h1>geolocation</h1>
+        </header>
+        
+        <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
+        <script>
+            addDifferenceElement();
+            </script>
+        <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
+        
+        <div id="contents" style="background-color:rgba(255,255,255,0.5);">
+            <h2>navigator.geolocation</h2>
+
+            <h3>概要</h3>
+            navigator オブジェクトへの参照を返します。 navigator オブジェクトを用いることで、スクリプトを実行しているアプリケーションについての情報を得ることができます。
+            
+            <h3>例</h3>
+            
+            <pre>
+                alert("あなたは " + navigator.appName + " を使用しています。");
+            </pre>
+            
+            <h3>プロパティ</h3>
+            
+            <pre>
+                navigator.appCodeName
+                現在のブラウザの内部 "コード" ネームを返す（※このプロパティは正確な値を返すとは限りません）
+                navigator.appName
+                ブラウザの正式名称を返す（※このプロパティは正確な値を返すとは限りません）
+                navigator.appVersion
+                ブラウザのバージョンを表す文字列を返す（※このプロパティは正確な値を返すとは限りません）
+                navigator.buildID
+                ブラウザのビルド識別子を返す（※例： "2006090803"）
+                navigator.connection
+                Provides information about the network connection of a device.
+                navigator.cookieEnabled
+                ブラウザのクッキーが有効かどうかを示す真偽値を返す
+                navigator.doNotTrack
+                Reports the value of the user's do-not-track preference. When this value is "yes", your web site or application should not track the user.
+                navigator.id
+                Returns the id object which you can use to add support for BrowserID to your web site.
+                navigator.language
+                ブラウザの言語バージョンを表す文字列を返す
+                navigator.mimeTypes
+                ブラウザがサポートしている MIME タイプの一覧を返す
+                navigator.mozApps
+                Returns an Apps object you can use to install, manage, and control Open Web apps.
+                navigator.battery
+                Returns a battery object you can use to get information about the battery charging status.
+                navigator.mozNotification Mobile Only in Gecko 2.0
+                navigator.webkitNotification
+                Returns a notification object you can use to deliver notifications to the user from your web application.
+                navigator.mozSettings ※要 FirefoxOS 1.0
+                Returns a SettingsManager object you can use to access the device's settings
+                navigator.mozSms Mobile Only in Gecko
+                Returns a SmsManager object you can use to manage SMS messaging in your web application.
+                navigator.mozSocial
+                FIXME:
+                navigator.mozTelephony Mobile Only in Gecko
+                Returns a Telephony object you can use to create and manage telephone calls.
+                navigator.onLine
+                ブラウザがオンラインで動作しているかどうかを示す真偽値を返す
+                navigator.oscpu
+                現在のオペレーティングシステムを表す文字列を返す
+                navigator.platform
+                ブラウザのプラットフォームを表す文字列を返す
+                navigator.plugins
+                ブラウザにインストールされているプラグインの一覧を配列で返す
+                navigator.product
+                現在のブラウザの製品名を返す（※例："Gecko"）
+                navigator.productSub
+                現在のブラウザのビルド番号を返します（※例："20060909"）
+                navigator.securitypolicy
+                空文字列を返す（※Netscape 4.7x のみ "US ＆ CA domestic policy" または、 "Export policy" という文字列を返す）
+                navigator.standalone
+                Returns a boolean indicating whether the browser is running in standalone mode. Available on Apple's iOS Safari only.
+                navigator.userAgent
+                現在のブラウザのユーザエージェントを表す文字列を返す
+                navigator.vendor
+                現在のブラウザのベンダー名を返す（※例："Netscape6"）
+                navigator.vendorSub
+                ベンダーバージョン番号を返す（※例："6.1"）
+                navigator.webkitPointer
+                Returns a PointerLock object for the Mouse Lock API.
+            </pre>
+            
+            
+            <h3>メソッド</h3>
+            
+            
+            <pre>
+                navigator.javaEnabled
+                ホストブラウザで Java が有効かどうかを示す
+                navigator.mozIsLocallyAvailable
+                指定 URI の文書がネットワークを利用しなくても閲覧可能かどうかをチェックする
+                navigator.preference 廃止 Gecko 2.0
+                ユーザ設定を設定する。このメソッドは、特権を持つコードでのみ使用可能です。現在は廃止されているため、代わりに XPCOM の Preferences API を用います。
+                navigator.registerContentHandler
+                Web サイトを指定した MIME タイプに関連付ける
+                navigator.registerProtocolHandler
+                Web サイト を指定したプロトコルに関連付ける
+                navigator.taintEnabled 非推奨 Gecko 1.7.8 廃止 Gecko 9.0
+                false を返す。JavaScript の taint/untaint 関数は、JavaScript 1.2 で削除されています（※）
+                navigator.vibrate()
+                Causes vibration on devices with support for it. Does nothing if vibration support isn't available.
+            </pre>
+            
+            <h3>仕様</h3>
+            HTML 仕様書での定義
+            
+            <h2>HTML5 Geolocation APIによる位置情報取得機能</h2>
+
+            <script id="scriptCode">
+                var latitude,longitude,accuracy;
+                navigator.geolocation.getCurrentPosition(function(position) {
+                                                         // 位置情報の取得に成功した場合
+                                                         latitude = position.coords.latitude,
+                                                         longitude = position.coords.longitude,
+                                                         accuracy = position.coords.accuracy;
+                                                         
+                                                         function showGeolocationAll() {
+                                                         alert("latitude : ",latitude);
+                                                         alert("longitude : ",longitude);
+                                                         alert("accuracy : ",accuracy);
+                                                         }
+                                                         
+                                                         showGeolocationAll();
+                                                         
+                                                         }, function(error) {
+                                                         // 位置情報の取得に失敗した場合
+                                                         switch(error.code) {
+                                                         case 1:
+                                                         alert("エラー：位置情報が許可されていません。");
+                                                         break;
+                                                         case 2:
+                                                         alert("エラー：デバイスの位置がわかりません。");
+                                                         break;
+                                                         case 3:
+                                                         alert("エラー：アイムアウトしました。");
+                                                         break;
+                                                         }
+                                                         }, {
+                                                         // オプションの設定
+                                                         enableHighAccuracy: true,
+                                                         timeout: 60000,
+                                                         maximumAge: 60000
+                                                         });
+                </script>
+            
+            <textarea id="scriptCodeTextArea" style="width:100%;height:400px;" hidden>
+            </textarea>
+            <pre id="scriptCodeView" style="width:100%;height:400px;background-color:white;overflow:scroll;" >
+            </pre>
+            
+            <script>
+                //表示用 JavaScript
+                var scriptCode = document.getElementById("scriptCode");
+                var scriptCodeView = document.getElementById("scriptCodeView");
+                var scriptCodeTextArea = document.getElementById("scriptCodeTextArea");
+                scriptCodeView.innerHTML = scriptCode.innerHTML;
+                scriptCodeTextArea.innerHTML = scriptCode.innerHTML;
+                
+                </script>
+            
+        </div>
+        <hr style="clear:both;"/>
+
+        <div id="page">
+            <h3>関連ページ</h3>
+            
+            <ul>
+                <li>
+                    <a href="./index.html"><h4>HOME</h4></a>
+                </li>
+                <li>
+                    <a href="./navigator.html"><h4>navigator</h4></a>
+                </li>
+                <li>
+                    <a href="./geolocation.html"><h4>geolocation</h4></a>
+                </li>
+            </ul>
+            
+        </div><!-- page /-->
+        
+        <div id="category" style="width:50%;">
+            
+            <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
+            <script>
+                setCategoryStyle();
+                displayCategoryListElement(this);
+                </script>
+            <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
+            
+        </div>
+        
+        <hr style="clear:both;"/>
+        
+        <footer>
+            <a href="http://sunstripe.main.jp/">HOME</a> > <a href="./index.html">素敵曜日 - JavaScript Lab</a> > <a href="./reference.html">reference</a> > <a href="./help.html">HELP</a>
+            <div style="clear:both;text-align:center;">
+                
+                &copy; 2011 - <script>
+                    var newDate = new Date();
+                    //年・月・日・曜日を取得する
+                    var year = newDate.getFullYear();
+                    document.write(year);
+                    </script> Team Sun Stripe
+            </div>
+        </footer>
+    </body>
+</html>

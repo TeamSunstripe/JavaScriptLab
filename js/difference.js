@@ -1,0 +1,5 @@
+var differenceDB = [];
+
+    function getDifferenceDB() {
+    
+    }

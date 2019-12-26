@@ -1,0 +1,5 @@
+var bookmarkDB = [];
+
+    function getBookMarkDB() {
+    
+    }

@@ -2,12 +2,55 @@
 <html lang="ja" target="_blank">
     <head>
         <meta charset="UTF-8"/>
-        <title>素敵曜日 - JavaScript Lab</title>
+        <title>素敵曜日 - JavaScript Lab - status</title>
         <script type="text/javascript" src="./js/init.js"></script>
-        <script type="text/javascript" src="./js/category.js"></script>
-        <script type="text/javascript" src="./js/sidemenu.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/styles.css"/>
         <style>
+            select{
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                height: 60px;
+                background: transparent;
+                position: relative;
+                z-index: 1;
+                padding: 0 40px 0 10px;
+                border: 1px solid #ccc;
+            }
+        select::-ms-expand {
+            display: none;
+        }
+        .statusList{
+            position: relative;
+            display: inline-block;
+        }
+        .statusList::before{
+            content: '';
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            right: 0;
+            background: #ccc;
+            height: 100%;
+            width: 100%;
+        }
+        .statusList::after{
+            content: '';
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+            right: 9px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 6px 6px 0 6px;
+            border-color: rgba(200,0,0,1.0) transparent transparent transparent;
+        }
             </style>
     </head>
     <body>
@@ -35,42 +78,12 @@
             }
         </style>
         
-        <a href="http://search.twitter.com/search.json?q=%23wordpress">%23wordpress</a>
-        
-        <a href="http://search.twitter.com/search.json?q=wordpress">wordpress</a>
-        
-        <div id="div-tweet">div-tweet</div>
-        <!-- jquery
-         
-         <script src="https://coxde.jquery.com/jquery-2.1.4.min.js"></script>
-         
-         -->
+        <h1>ステータスリスト</h1>
+        <!-- STATUS 状態を JavaScriptで表示する// -->
         <script>
-            (function(){
-             // https://dev.twitter.com/web/tweet-button/web-intent
-             var div_tweet = document.getElementById('div-tweet');
-             var base_url = 'https://twitter.com/intent/tweet';
-             // パラメータ
-             var text = 'Twitter API(Tweet Web Intent) Test';
-             var url = 'http://sunstripe.main.jp/';
-             var via = 'sunstripe2011';
-             var hashtags = 'サンストライプ, TwitterAPI';
-             // 指定したユーザーがおすすめユーザーとして2アカウントまで表示
-             var related = 'sunstripe2011';
-             var tweetid = 0;
-             
-             var tweetLink = '<a href="' + base_url +
-             '?text=' + encodeURIComponent(text) +
-             '&url=' + url +
-             '&via=' + via +
-             '&hashtags=' + hashtags +
-             '&related=' + related +
-             // '&in-reply-to=' + tweetid +
-             '" target="_blank">ツイート</a>';
-             
-             div_tweet.innerHTML = tweetLink;
-             })();
+            addStatusElement();
             </script>
+        <!-- STATUS 状態を JavaScriptで表示する// -->
         
         <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
         <script>
@@ -78,44 +91,19 @@
             </script>
         <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
         
-        <hr style="clear:both;"/>
-        
-        <div id="sidemenu" style="width:30%;float:left;">
-            
-            <!-- サイドメニュー一覧エリアを JavaScriptで表示する// -->
-            <script>
-                setSideMenuStyle();
-                displaySideMenuListElement(this);
-                </script>
-            <!-- サイドメニュー一覧エリアを JavaScriptで表示する// -->
-            
-        </div>
-        
-        <div id="category" style="width:50%;float:right;">
-            
-        <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
-        <script>
-            setCategoryStyle();
-            displayCategoryListElement(this);
-            </script>
-        <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
-        
-        </div>
-        
-        <hr style="clear:both;"/>
-        
-        <div>
-            <a href="./category.html"><h4>category</h4></a>
-        </div>
-        
         <div id="contents">
             <a href="./Game/index.html">
-                <div id="contentsGame" style="width:200px;height:200px;background-color:rgba(255,255,255,0.5);">
-                </div>
+            <div id="contentsGame" style="width:200px;height:200px;background-color:rgba(255,255,255,0.5);">
+            </div>
             </a>
         </div>
         
-
+        <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
+        <script>
+            displayCategoryListElement();
+            </script>
+        <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
+        
         <footer>
             <a href="http://sunstripe.main.jp/">HOME</a> > <a href="./index.html">素敵曜日 - JavaScript Lab</a> > <a href="./reference.html">reference</a> > <a href="./help.html">HELP</a>
             <div style="clear:both;text-align:center;">

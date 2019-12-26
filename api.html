@@ -4,8 +4,6 @@
         <meta charset="UTF-8"/>
         <title>素敵曜日 - JavaScript Lab</title>
         <script type="text/javascript" src="./js/init.js"></script>
-        <script type="text/javascript" src="./js/category.js"></script>
-        <script type="text/javascript" src="./js/sidemenu.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/styles.css"/>
         <style>
             </style>
@@ -35,6 +33,43 @@
             }
         </style>
         
+        
+        <script>
+            function apiResulut() {
+                return {
+                    "results":{
+                        "api_version":"2.0.1",
+                        "status":"api_version",
+                        "code":"",
+                        "error":[
+                                 {
+                                 "message":"サービスエリアコードが不正です。",
+                                 }
+                                 ]
+                    },
+                }
+            };
+        
+        var api_resulut = apiResulut();
+        
+        if ( parseFloat(api_resulut.results.api_version) >= 2.0 )
+        {
+            alert(api_resulut.results.api_version);
+        }
+        else
+        {
+            var errorMesssage = "";
+            for (var e = 0; e < api_resulut.results.error.length;e++)
+            {
+                errorMesssage += '<div style="background-color:white;color:red;padding:5px;">';
+                errorMesssage += api_resulut.results.error[ e ].message;
+                errorMesssage += '</div>';
+            }
+            document.write(errorMesssage);
+        }
+        
+            </script>
+        
         <a href="http://search.twitter.com/search.json?q=%23wordpress">%23wordpress</a>
         
         <a href="http://search.twitter.com/search.json?q=wordpress">wordpress</a>
@@ -45,6 +80,7 @@
          <script src="https://coxde.jquery.com/jquery-2.1.4.min.js"></script>
          
          -->
+        
         <script>
             (function(){
              // https://dev.twitter.com/web/tweet-button/web-intent
@@ -78,44 +114,19 @@
             </script>
         <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
         
-        <hr style="clear:both;"/>
-        
-        <div id="sidemenu" style="width:30%;float:left;">
-            
-            <!-- サイドメニュー一覧エリアを JavaScriptで表示する// -->
-            <script>
-                setSideMenuStyle();
-                displaySideMenuListElement(this);
-                </script>
-            <!-- サイドメニュー一覧エリアを JavaScriptで表示する// -->
-            
-        </div>
-        
-        <div id="category" style="width:50%;float:right;">
-            
-        <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
-        <script>
-            setCategoryStyle();
-            displayCategoryListElement(this);
-            </script>
-        <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
-        
-        </div>
-        
-        <hr style="clear:both;"/>
-        
-        <div>
-            <a href="./category.html"><h4>category</h4></a>
-        </div>
-        
         <div id="contents">
             <a href="./Game/index.html">
-                <div id="contentsGame" style="width:200px;height:200px;background-color:rgba(255,255,255,0.5);">
-                </div>
+            <div id="contentsGame" style="width:200px;height:200px;background-color:rgba(255,255,255,0.5);">
+            </div>
             </a>
         </div>
         
-
+        <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
+        <script>
+            displayCategoryListElement();
+            </script>
+        <!-- カテゴリー一覧エリアを JavaScriptで表示する// -->
+        
         <footer>
             <a href="http://sunstripe.main.jp/">HOME</a> > <a href="./index.html">素敵曜日 - JavaScript Lab</a> > <a href="./reference.html">reference</a> > <a href="./help.html">HELP</a>
             <div style="clear:both;text-align:center;">

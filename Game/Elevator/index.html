@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja" target="_blank">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>素敵曜日 - JavaScript Lab - Game - Elevator</title>
+        <script type="text/javascript" src="../../js/init.js"></script>
+        <script type="text/javascript" src="./js/init.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../css/styles.css"/>
+        <link rel="stylesheet" type="text/css" href="./css/main.css"/>
+        <style>
+            </style>
+    </head>
+    <body>
+        <header>
+            
+        </header>
+        
+        <canvas id="canvasElevator" width="200" height="200"></canvas>
+        <button id="Elevator_stopButton" onclick="gameElevatorDate.info.action.stop();">止める</button>
+        <button id="Elevator_startButton" onclick="gameElevatorDate.info.action.start();" hidden>開始</button>
+        <div id="Elevator_floorTextView">
+            <h2>0階</h2>
+            <h5>移動情報：(moveX,moveY) = (0,0);</h5>
+        </div>
+        <script>
+            //初期値の設定
+            var gameElevatorDate = {
+                "timer":"",
+                "isLoop":true,
+                "loopTimeSecond":700,
+                // エレベーターの情報
+                "info":{
+                    "x":0,
+                    "y":0,
+                    "width":50,
+                    "height":50,
+                    // 移動情報の情報
+                    "moveX":0,
+                    "moveY":50,
+                    "floorInfo":4,
+                    "action":
+                    {
+                        "stop":"",
+                        "start":"",
+                    }
+                }
+            };
+        var Elevator_stopButton = document.getElementById("Elevator_stopButton");
+        var Elevator_startButton = document.getElementById("Elevator_startButton");
+        var Elevator_floorTextView = document.getElementById("Elevator_floorTextView");
+        
+        function drawLoopSquare() {
+            /* Canvas要素の定義など */
+            var cs  = document.getElementById('canvasElevator');
+            var ctx = cs.getContext('2d');
+            var w = cs.width;
+            var h = cs.height;
+            var x = gameElevatorDate.info.x;
+            var y = gameElevatorDate.info.y;
+            /* 描画フロー */
+            function render() {
+                
+                //状態：ストップ
+                if (!gameElevatorDate.isLoop) {
+                    return;
+                }
+                
+                // Canvas全体をクリア
+                ctx.clearRect(0, 0, w, h);
+                
+                // 要素を描画する
+                ctx.beginPath();
+                ctx.strokeRect(x, y, gameElevatorDate.info.width, gameElevatorDate.info.height);
+                
+                // 要素を動かす
+                // 四角形のx座標がCanvasの横幅を超えたら初期位置(x座標を0)へ
+                // そうでなければ、x座標を1増やす
+                if (x > cs.width) {
+                    x = 0;
+                } else {
+                    x += gameElevatorDate.info.moveX;
+                }
+                if (y > cs.height) {
+                    y = 0;
+                } else {
+                    y += gameElevatorDate.info.moveY;
+                }
+                
+                //
+                Elevator_floorTextView.innerHTML =
+                "<h2>" + gameElevatorDate.info.floorInfo + "階</h2>" +
+                "<h5>" + "移動情報：(moveX,moveY) = " + "(" +
+                gameElevatorDate.info.moveX + "," +
+                gameElevatorDate.info.moveY + ");" +
+                "</h5>";
+                
+                // このrender関数を繰り返す
+                // 下記どちらかを使った場合は、外側でrender()を実行する※1（もしくは即時実行）
+                // setTimeout(render, 100);
+                // requestAnimationFrame(render);
+            }
+            
+            gameElevatorDate.info.action.stop = function stop() {
+                gameElevatorDate.isLoop = false;
+                
+                if (!gameElevatorDate.isLoop) {
+                    clearInterval(gameElevatorDate.timer);
+                }
+                
+                Elevator_stopButton.hidden = true;
+                Elevator_startButton.hidden = false;
+            }
+            gameElevatorDate.info.action.start = function start() {
+                gameElevatorDate.isLoop = true;
+                /* setTimeout、requestAnimationFrameではなく、setIntervalを使う場合 */
+                if (gameElevatorDate.isLoop) {
+                    /* render()関数を繰り返す */
+                    gameElevatorDate.timer = setInterval(render, gameElevatorDate.loopTimeSecond);
+                }
+                
+                Elevator_stopButton.hidden = false;
+                Elevator_startButton.hidden = true;
+            }
+            
+            /* ※1 */
+            // render();
+            gameElevatorDate.info.action.start();
+        }
+        drawLoopSquare();
+            </script>
+        
+        <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
+        <script>
+            addDifferenceElement();
+            </script>
+        <!-- 最終更新日 から 経過しているかのエリアを JavaScriptで表示する// -->
+        
+        <script>
+            new Elevator()
+            </script>
+        <footer>
+            <a href="http://sunstripe.main.jp/">
+                <div style="clear:both;text-align:center;">
+                    
+                    &copy; 2011 - <script>
+                        var newDate = new Date();
+                        //年・月・日・曜日を取得する
+                        var year = newDate.getFullYear();
+                        document.write(year);
+                        </script> Team Sun Stripe
+                </div>
+            </a>
+        </footer>
+    </body>
+</html>
